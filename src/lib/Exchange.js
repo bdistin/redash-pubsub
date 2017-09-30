@@ -34,11 +34,11 @@ class Exchange {
 
 	async assertTable() {
 		if (this._asserted) return;
-		await this.conn.dbCreate(this.optoins.db)
+		await this.db.dbCreate(this.options.db)
 			.catch((err) => {
 				if (err.msg.indexOf('already exists') === -1) throw err;
 			});
-		await this.conn.tableCreate(this.name)
+		await this.db.tableCreate(this.name)
 			.catch((err) => {
 				if (err.msg.indexOf('already exists') === -1) throw err;
 			});
