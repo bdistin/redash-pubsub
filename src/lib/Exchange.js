@@ -28,8 +28,8 @@ class Exchange {
 
 	async subscribe(filter) {
 		if (!this._asserted) await this.assertTable();
-		filter = typeof filter === 'function' ? filter : (key) => key.eq(filter);
-		return await this.table.changes()('new_val').filter(row => filter(row('id'))).run({ curser: true });
+		if (typeof filter === 'function') return await this.table.changes()('new_val').filter(row => filter(row('id')));
+		return await this.table.get(filter).changes()('new_val');
 	}
 
 	async assertTable() {
