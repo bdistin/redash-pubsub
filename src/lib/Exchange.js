@@ -23,7 +23,7 @@ class Exchange {
 			id: key,
 			updatedOn: this.db.now(),
 			payload
-		}, { conflict: 'update' });
+		}, { conflict: 'replace' });
 	}
 
 	async subscribe(filter) {
