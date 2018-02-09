@@ -18,5 +18,9 @@
   "homepage": "https://github.com/bdistin/redash-pubsub#readme",
   "dependencies": {
     "rethinkdbdash": "^2.3.31"
+  },
+  "devDependencies": {
+    "eslint": "^4.17.0",
+    "eslint-config-klasa": "github:dirigeants/klasa-lint"
   }
 }
